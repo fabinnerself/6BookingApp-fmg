@@ -31,45 +31,43 @@ if(loading) return (
     <Spinner className="w-14 h-14 text-gray-200 fill-blue-500 animate-spin" /></div>)
 
   return (
-     <div>      
+    <div>      
       {/* hero  */}
       <Hero hotel={hotel} />
-      
-     <div className='max-w-5x1 mx-auto p-5'>
-     {/* reservaciones */ }
-     <div className='mb-4'>
-      <Reservations hotelId={hotel?.id} />
-     </div>
-     <div>     
+        
+      <div className='max-w-5x1 mx-auto p-5 py-10'>
 
-     </div>
-     {/* grid */}
-     <div className='grid grid-cols-2  gap-4'>
-       <div className='col-span-2'>
-         <Description 
-        description = {hotel?.description}
-        rating = {hotel?.rating}
-        address = {hotel?.address}
-         />
-      </div>
-      <div>
-        <Gallery
-        images = {hotel}        
-         />        
-      </div>
-      <div>
-        <Map
-        lat = {hotel?.lat} 
-        lon = {hotel?.lon}
-        />
-      </div>
-    </div> 
-    {/*related hotels */}
-    {/* <div></div> */}
-    </div>
-    <pre>
-      {JSON.stringify(params,null,2)}
-    </pre>
+        {/* reservaciones */ }
+        <div className='mb-4'>
+          <Reservations hotelId={hotel?.id} />
+        </div>
+        
+        {/* grid */}
+        <div className='grid grid-cols-2  gap-5'>
+          <div className='col-span-2'>
+            <Description 
+              description = {hotel?.description}
+              rating = {hotel?.rating}
+              address = {hotel?.address}
+            />
+          </div>
+          <div>
+            <Gallery
+              images = {hotel}        
+            />        
+          </div>
+          <div>
+            <Map
+              lat = {hotel?.lat} 
+              lon = {hotel?.lon}  />
+          </div>
+        </div> 
+        {/* reviews  */}
+        <div></div>
+
+        {/* related hotels*/}
+        <div></div>
+      </div>    
     </div>
   )
 }
