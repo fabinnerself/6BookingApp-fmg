@@ -7,7 +7,7 @@ function Gallery({ images }) {
   // if (!images) return
 
   return (
-     <div className='w-full h-full object-cover rounded-lg overflow-hidden'>
+     <div className='w-full h-full object-cover rounded-lg overflow-hidden'>      
       <img  src={imagesG} alt="Photo" ></img> </div> 
       
   )

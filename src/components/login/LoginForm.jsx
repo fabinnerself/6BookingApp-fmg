@@ -5,7 +5,7 @@ import * as z from 'zod'
 
 const schema = z.object({
     email:z.string().email(),
-    password:z.string().min(6,{message:"Ingrese un password de "}),
+    password:z.string().min(6,{message:"Ingrese un password de almenos 6 characteres "}),
 
 })
  
@@ -24,13 +24,13 @@ const schema = z.object({
         <label className='block font-semibold ' >E-mail</label>
         <input className='input-form' placeholder='ingresa tu correo' type="email" 
         {...register('email')}/>
-        {errors.email && <span className='error-validation'>{errors.email.message}</span>}
+        {errors.email && <span className='error-validation block my-4'>{errors.email.message}</span>}
         </div>
         <div className='mb-4'>
-        <label htmlFor="">Password</label>
-        <input className='input-form' type="password" 
+        <label className='block font-semibold '>Password</label>
+        <input className='input-form' type="password" placeholder='Ingresa tu contraseña'
         {...register('password')} />
-        {errors.password && <span className='error-validation'>{errors.password.message}</span>}
+        {errors.password && <span className='error-validation block my-4'>{errors.password.message}</span>}
         </div>
         <button className='btn w-full'>Iniciar session</button> 
         
