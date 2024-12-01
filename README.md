@@ -37,7 +37,7 @@ This web application, built with ReactJS and Vite, enables users to search for a
 - **Booking History:** View and manage current and past bookings.
  
 
-You can visit the online platform at [https://pokedex-fmg.vercel.app/](https://pokedex-fmg.vercel.app/)
+You can visit the online platform at [https://6-booking-app-fmg.vercel.app/](https://6-booking-app-fmg.vercel.app/)
 
 ## System Requirements
 
@@ -151,11 +151,11 @@ To install, download the project from the repository:
 
 ```bash
 
-git clone https://github.com/fabinnerself/E5-pokedex-fmg.git
+git clone https://github.com/fabinnerself/6BookingApp-fmg.git
 
 luego correr:
 
-cd  E5-pokedex-fmg
+cd  6BookingApp-fmg
 
 npm i axios  react-icons react-router-dom   
 ```
