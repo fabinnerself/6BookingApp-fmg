@@ -26,6 +26,14 @@
       @apply text-pretty
     }
 
+    .text-custom-blue {
+      color: #8471FE;
+    }
+
+    .text-custom-green {
+      color: #1AF4BC;
+    }
+
 
   }
 
@@ -44,6 +52,8 @@
     .input-form {
       @apply border py-3 px-4 rounded-lg w-full focus:border-blue-500 focus:outline-none;
     }
+
+    
   }
 
   @layer utilities {

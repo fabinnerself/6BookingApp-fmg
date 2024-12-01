@@ -10,7 +10,7 @@ function Description({ rating, address, description}) {
     </div>
       <p className='flex items-center gap-1 '>
         <IoLocationOutline /><span className="text-xs">{address}</span> <IoLocationOutline /></p>
-      <p className=''>{description}</p>
+      <p className='text-justify'>{description}</p>
 
     </div>
   )

@@ -4,8 +4,8 @@ import Logo from './Logo'
 
 function Brand() {
   return (
-    <Link to="/"  className='flex items-center gap-2' ><Logo className="w-10 h-10"  />
-    <span className='text-3x1 font-semibold text-blue-500'>Booking <span className='text-emerald-500'>App</span></span>
+    <Link to="/"  className='flex items-center gap-1' ><Logo className="w-10 h-10"  />
+    <span className='text-4x1 font-semibold text-custom-blue'>Booking <span className='text-custom-green'>APP </span></span>
     </Link>
   )
 }
