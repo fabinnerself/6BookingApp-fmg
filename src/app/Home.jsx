@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import HotelsList from '../components/home/HotelsList'
 import { useHotels } from '../context/hotels'
+import Layout from '../layouts/Layout'
 
 function Home() {
    const {hotels,getAll} =useHotels()
@@ -17,15 +18,11 @@ useEffect(() =>{
 //  console.log("from home ",hotels)
 
   return (
-    <div>
+    <Layout >     
       <section className='max-w-5x1 mx-auto px-5 py-10'>        
         <HotelsList hotels={hotels} />        
-      </section>
-      
-      {/* <pre>
-      {JSON.stringify(hotels,null,2)}
-      </pre> */}
-      </div>
+      </section>      
+      </Layout>
   )
 }
 

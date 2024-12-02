@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --color-primary: #2c7da0; 
+    --color-septenary: #bde0fe;
+}
+
 /* inter-latin-wght-normal */
 @font-face {
     font-family: 'Inter Variable';
@@ -32,11 +37,9 @@
 
     .text-custom-green {
       color: #1AF4BC;
-    }
-
+    }      
 
   }
-
 
 
   @layer components {
@@ -53,6 +56,11 @@
       @apply border py-3 px-4 rounded-lg w-full focus:border-blue-500 focus:outline-none;
     }
 
+   
+    .footer {
+      @apply bg-[var(--color-primary)] text-[var(--color-septenary)] h-9 flex items-center justify-center space-x-4;
+    }
+  
     
   }
 
