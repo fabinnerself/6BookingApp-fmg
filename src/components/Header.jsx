@@ -1,17 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Brand from './home/Brand'
-import { Link } from 'react-router'
+import Menu from './Menu'
+import Nav from './home/Nav';
 
-function Header() {
-  return (
-    <div className='sticky top-0 z-10  bg-white  h-20 w-full shadow-lg '><div>
-        <div className='max-w-5x1 mx-auto px-5 h-full flex items-center justify-center'>
-        <div><Brand /></div>
+import { IoMdMenu } from "react-icons/io";
 
-        <div><Link to="/login">Iniciar Session</Link></div>
+
+
+function Header() {    
+    
+    const [isOpen,setIsOpen] = useState(false)
+
+    const handleToggleMenu = () => {
+      setIsOpen(!isOpen) 
+    }
+  
+    return (
+
+    <div className='sticky top-0 bg-white h-20 w-full shadow-lg z-10'>
+        <div className='max-w-5x1 mx-auto px-5 h-full flex items-center justify-between'>
+
+        <Brand />
+
+        <Menu openMenu={isOpen} closeMenu={handleToggleMenu} >
+          <Nav />
+        </Menu>
+
+        <button className='p-1 md:hidden ' onClick={handleToggleMenu}>
+          <IoMdMenu className='size-7'/> </button>
+
+        {/* <div>
+        {isAuth ?(<>
+            <button className='btn bg-red-500' onClick={logout}>logout</button>
+                </>) :(<Link to="/login" >Iniciar session</Link>)} </div> */}
         </div>
-     </div></div>
-  )
+    </div>
+         
+    )  
 }
 
 export default Header

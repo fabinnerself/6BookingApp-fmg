@@ -1,17 +1,18 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router'
 import useApiFech from '../hooks/useApiFech'
-
+import { MdLockOutline } from "react-icons/md";
 import Spinner from '../components/home/Spinner';
 import Reservations from '../components/details/Reservations';
 import Description from '../components/details/Description';
 import Gallery from '../components/details/Gallery';
 import Map from '../components/details/Map';
 import Hero from '../components/details/Hero';
+import { useAuth } from '../context/auth';
 
 function Details() {
   const params = useParams()
-
+  const { isAuth } = useAuth()
   const [hotel, getHotel,loading] = useApiFech()
 
   useEffect(()=>{
@@ -36,10 +37,13 @@ if(loading) return (
       <Hero hotel={hotel} />
         
       <div className='max-w-5x1 mx-auto p-5 py-10'>
+        <h2 className='text-2xl font-semibold text-center mb-4'>Reserve</h2>
 
         {/* reservaciones */ }
-        <div className='mb-4'>
-          <Reservations hotelId={hotel?.id} />
+        <div className='mb-8'>
+        {isAuth ? (<Reservations hotelId={hotel?.id} />) :(
+          <p className='flex place-items-center justify-center gap-1'><MdLockOutline className='size-7' />
+          <span>Please, login to make a reservation</span></p> )}          
         </div>
         
         {/* grid */}
