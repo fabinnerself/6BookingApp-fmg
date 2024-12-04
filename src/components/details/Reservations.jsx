@@ -7,6 +7,7 @@ import { cn } from '../../utils'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Bounce } from 'react-toastify';
+import useApiFech from '../../hooks/useApiFech'
 
 const schema = z.object({
     checkIn: z.string().min(10, { message: "Check-In es requerido" }),
@@ -29,7 +30,8 @@ const schema = z.object({
     path: ["checkOut"] 
 });
 
-function Reservations({ hotelId }) {
+function  Reservations({ hotelId }) {
+    const [data,createReservation] = useApiFech()
     const {handleSubmit, register, formState: {errors }, reset} = useForm({ 
         resolver: zodResolver(schema)})
 
@@ -59,6 +61,11 @@ function Reservations({ hotelId }) {
         const blnRes = fValidateDates(dataForm.checkIn,dataForm.checkOut)
         console.log("res ",blnRes)
         if(blnRes){
+            createReservation({
+                url:'/bookings',
+                method: 'POST',
+                body:dataForm
+            })
             reset();    
             toast('🛫🌍🏨📅📖 Reserva registrada correctamente! ', {
                 position: "top-right",

@@ -8,7 +8,11 @@ function HotelsList({ hotels }) {
       {hotels?.map(hotel => (
           <HotelCard key={hotel?.id} hotel={hotel} />
       ))
-    }</div>
+    }
+{hotels.length ===0 && (
+    <p>No hotels found</p>)}    
+
+    </div>
   )
 }
 
