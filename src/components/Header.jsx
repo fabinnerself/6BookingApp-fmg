@@ -29,10 +29,7 @@ function Header() {
         <button className='p-1 md:hidden ' onClick={handleToggleMenu}>
           <IoMdMenu className='size-7'/> </button>
 
-        {/* <div>
-        {isAuth ?(<>
-            <button className='btn bg-red-500' onClick={logout}>logout</button>
-                </>) :(<Link to="/login" >Iniciar session</Link>)} </div> */}
+         
         </div>
     </div>
          

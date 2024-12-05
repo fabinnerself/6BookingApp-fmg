@@ -11,8 +11,11 @@ function Header() {
         <div className='max-w-5x1 mx-auto px-5 h-full flex items-center justify-between'>
         <Brand />
         <div>
-            {isAuth ?(<>
+        
+            {isAuth ?(<>     
+                                           
             <button className='btn gb-red-500' onClick={logout}>logout</button>
+            
                 </>) :(<Link to="/login" >Iniciar session</Link>)}
         </div>
          </div>

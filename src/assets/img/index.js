@@ -1,0 +1,1 @@
+export {default as cnf} from './hero_config.jpg'
