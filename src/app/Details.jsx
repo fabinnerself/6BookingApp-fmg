@@ -9,6 +9,7 @@ import Gallery from '../components/details/Gallery';
 import Map from '../components/details/Map';
 import Hero from '../components/details/Hero';
 import { useAuth } from '../context/auth';
+import Reviews from '../components/details/Reviews';
 
 function Details() {
   const params = useParams()
@@ -67,7 +68,7 @@ if(loading) return (
           </div>
         </div> 
         {/* reviews  */}
-        <div></div>
+        <div><Reviews hotelId={hotel?.id} /></div>
 
         {/* related hotels*/}
         <div></div>
