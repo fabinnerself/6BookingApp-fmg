@@ -4,8 +4,9 @@
   "Claro": "Claro",
   "Oscuro": "Oscuro",
   "Colorido": "Colorido",
-  "Ocean":"Ocean",
+  "Ocean":"Oceano",
   "c_as":"Configuración de la aplicación",
   "c_lan":"Idioma",
-  "c_theme":"Tema"
+  "c_theme":"Tema",
+  "c_localCurrency":"Moneda local"
 }

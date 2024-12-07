@@ -37,7 +37,31 @@
 
     .text-custom-green {
       color: #1AF4BC;
-    }      
+    }     
+        
+    .custom-card {
+      background-color: #bde0fe;
+    }     
+
+    body.light {
+      background-color: white;
+      color: black;
+    }
+    
+    body.dark {
+      background-color: black;
+      color: gray;
+    }
+    
+    body.colorful {
+      background-color: #ffcc99; 
+      color: #000; 
+    }    
+
+    body.ocean {
+      background-color: #0077be; 
+      color: skyblue;
+    }        
 
   }
 

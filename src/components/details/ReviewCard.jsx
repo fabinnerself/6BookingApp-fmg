@@ -13,7 +13,7 @@ function ReviewCard({ review }) {
           </div>
 
         </div>
-        <p className='text-sm '>{review.comment}</p>
+        <p className='text-sm text-left '>{review.comment}</p>
           
     </div>
   )

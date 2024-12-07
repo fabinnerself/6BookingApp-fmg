@@ -10,7 +10,7 @@ function Hero({hotel}) {
         }}>            
         <div className='grid place-content-center h-full bg-white/30 bg-opacity-75 backdrop-blur-sm'>
             <div >
-                <h1 className='text-2x1 font-semibold text-center mb-2'>{hotel?.name}</h1>
+                <h1 className='text-2x1 md:text-4xl font-semibold text-center mb-2'>{hotel?.name}</h1>
                 <p className='flex items-center justify-center gap-1'> <TfiWorld />
                 <span className='text-sm '>
                     {hotel?.city?.name}, {hotel?.city?.country}</span></p>

@@ -24,9 +24,7 @@ const handleDelete = (id) => {
 
 const handleOpenModal = (id) => {
   setOpenModal(true)
-  setChild(<Review hotelId={id} closeModal={closeModal} />)
-  // setChild('<h2> contendio </h2>')
-  console.log("rate ",id)
+  setChild(<Review hotelId={id} closeModal={closeModal} />)    
 }
 
 const closeModal = () => {
@@ -35,15 +33,15 @@ const closeModal = () => {
 
   return (
     <div className='max-w-5xl mx-auto px-5 py-16'> 
-    <ReservationsList 
-      reservations={reservations} onDelete={handleDelete} 
-      onRate={handleOpenModal} />
-        
-    <Modal openModal={openModal} closeModal={closeModal} >
-       {child} 
-      {/* <Review hotelId={1}  closeModal={closeModal} /> */}
       
-    </Modal>
+      <ReservationsList 
+        reservations={reservations} 
+        onDelete={handleDelete} 
+        onRate={handleOpenModal} />
+          
+      <Modal openModal={openModal} closeModal={closeModal} >
+        {child}         
+      </Modal>
     </div>
   )
 }

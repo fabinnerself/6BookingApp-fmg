@@ -5,7 +5,7 @@ import { Link } from 'react-router'
 
 function Register() {
   return (
-    <div>
+    <div className='p-11 bg-slate-400  rounded-md shadow-xl'>
       <h1 className='text-lg font-semibold mb-6'>Create an Accout</h1>
       <RegisterForm />
       <p className='mt-6'>

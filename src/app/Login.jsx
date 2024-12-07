@@ -4,7 +4,7 @@ import LoginForm from '../components/auth/LoginForm'
 
 function Login() {
   return (
-    <div>
+    <div className='p-11 bg-slate-400  rounded-md shadow-xl'>
       <h1 className='text-lg font-semibold mb-6'>
         Sign in with your account</h1>
      <LoginForm />

@@ -6,5 +6,7 @@
   "Colorido": "Renkli",
     "c_as":"Uygulama Ayarları",
   "c_lan":"Languaje",
-  "c_theme":"Tema"
+  "c_theme":"Tema",
+  "c_localCurrency":"Yerel Para Birimi",
+  "Ocean":"Okyanus"
 }

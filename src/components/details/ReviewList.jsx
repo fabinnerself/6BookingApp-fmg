@@ -16,10 +16,11 @@ function ReviewList({ reviews }) {
             
              <ReviewCard key={review?.id}  review={review} />
         )) }
-        </div>
-        {visibleReviews < reviews?.length && (<div>
+        </div >
+        {visibleReviews < reviews?.length && (
+          <div className='flex justify-center'>
             <button className='btn ' onClick={loadMore}>Load more</button>
-        </div>)}
+          </div>)}
 
          {reviews?.length === 0 && (
             <p className='font-semibold text-center'>No reviews yet.</p>

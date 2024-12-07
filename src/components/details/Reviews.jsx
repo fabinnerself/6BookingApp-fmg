@@ -13,7 +13,7 @@ function Reviews({ hotelId }) {
         }        
     },[hotelId])
   return (
-    <div><h3 >Reviews</h3>
+    <div className='text-2xl font-semibold text-center mb-4'><h3 >Reviews</h3>
     <ReviewList reviews={reviews?.results} />
     </div>
   )

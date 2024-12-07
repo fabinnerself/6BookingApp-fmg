@@ -4,7 +4,9 @@
   "Claro": "Hell",
   "Oscuro": "Dunkel",
   "Colorido": "Bunt",
+  "Ocean":"Ozean",
   "c_as":"Anwendungseinstellungen",
   "c_lan":"Sprache",
-  "c_theme":"Thema"
+  "c_theme":"Thema",
+  "c_localCurrency":"Landeswährung"
 }

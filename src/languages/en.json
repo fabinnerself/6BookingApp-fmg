@@ -4,7 +4,9 @@
   "Claro":"Light",
   "Oscuro":"Dark",
   "Colorido":"Colorful",
+  "Ocean":"Ocean",
   "c_as":"Application Settings",
   "c_lan":"Languaje",
-  "c_theme":"Theme"
+  "c_theme":"Theme",
+  "c_localCurrency":"Local Currency"
 }

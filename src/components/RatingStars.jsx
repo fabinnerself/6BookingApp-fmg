@@ -1,21 +1,19 @@
 import React from 'react'
 import {FaRegStar , FaStarHalfStroke, FaStar, FaS }from 'react-icons/fa6'
 
-function RatingStars({ rating }) {
-    // console.log(rating)
+function RatingStars({ rating }) {    
 
     const renderStar = (index) =>{
         if (index < Math.floor(rating)) {
             return <FaStar /> //estrella completa    
         } else if (index < rating) {
-            return <FaStarHalfStroke /> //estrella  mitad
+            return <FaStarHalfStroke /> 
         } else {
-            return <FaRegStar /> //estrella vacia    
-        }
-
-
-        
+            return <FaRegStar /> 
+        } 
     }
+
+    const auxRender = Number(rating).toFixed(1)    
     
   return (
     <div className='flex items-center gap-2'>
@@ -27,7 +25,7 @@ function RatingStars({ rating }) {
             )
         })
             }</span> {' '}
-            <span className='text-gray-400  text-sm'>{rating}</span>
+            <span className='text-gray-400  text-sm'>{auxRender}</span>
     </div>
   )
 }

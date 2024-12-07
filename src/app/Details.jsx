@@ -10,6 +10,7 @@ import Map from '../components/details/Map';
 import Hero from '../components/details/Hero';
 import { useAuth } from '../context/auth';
 import Reviews from '../components/details/Reviews';
+import Related from '../components/details/Related';
 
 function Details() {
   const params = useParams()
@@ -48,7 +49,7 @@ if(loading) return (
         </div>
         
         {/* grid */}
-        <div className='grid grid-cols-2  gap-5'>
+        <div className='grid grid-cols-2  gap-5 mb-5'>
           <div className='col-span-2'>
             <Description 
               description = {hotel?.description}
@@ -66,12 +67,19 @@ if(loading) return (
               lat = {hotel?.lat} 
               lon = {hotel?.lon}  />
           </div>
-        </div> 
-        {/* reviews  */}
-        <div><Reviews hotelId={hotel?.id} /></div>
+        </div>  
+        
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+          {/* reviews  */}
+          <div><Reviews hotelId={hotel?.id} /></div>
 
-        {/* related hotels*/}
-        <div></div>
+          {/* related hotels*/}
+          <div className='h-full'>
+            <div className='sticky top-20 '>
+              <Related cityId={hotel?.cityId} hotelId={hotel?.id} />
+            </div>
+          </div>
+        </div>
       </div>    
     </div>
   )

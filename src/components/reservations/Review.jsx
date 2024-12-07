@@ -1,4 +1,6 @@
 import React ,  { useState } from 'react'
+import {  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import ReviewRating from './ReviewRating'
 import useApiFech from '../../hooks/useApiFech'
 
@@ -15,14 +17,27 @@ function Review({ hotelId, closeModal }) {
     const [error, setError] = useState(null)
     
     const handleSubmit = () => {
+
         review.hotelId = hotelId
+        
         const {comment, rating} = review
 
         if(!comment || rating===0){
             setError("Please fill all the fields")
             return 
         }
-        console.log("review ", review)
+
+        toast.success('Rate registered successfully!🌟',{ 
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme: "light"
+        });
+
+        
         fetchReview({
             url: '/reviews',
             method: 'POST',

@@ -1,9 +1,12 @@
 import React from 'react'
+import { useNavigate } from 'react-router'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import {  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import * as z from 'zod'
 import { useAuth } from '../../context/auth'
-import { useNavigate } from 'react-router'
+
 
 const schema = z.object({
     email:z.string().email(),
@@ -19,14 +22,28 @@ const schema = z.object({
     })
 
     const onSubmit = (dataform) => {
-        console.log(dataform)
-        login(dataform)
-        reset()
-        navigate("/")
+ 
+        toast.success('👤Login Successful👤!',{ 
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme: "light"
+        });
+
+        login(dataform);
+        
+        navigate("/") 
+        
+        reset();
+
     }
 
    return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}> 
+
         <div className='mb-4'>
         <label className='block font-semibold ' >E-mail</label>
         <input className='input-form' placeholder='ingresa tu correo' type="email" 

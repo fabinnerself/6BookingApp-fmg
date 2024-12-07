@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import * as z from "zod"
 import {zodResolver} from "@hookform/resolvers/zod"
 import { cn } from '../../utils'
-import { ToastContainer, toast } from 'react-toastify';
+import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Bounce } from 'react-toastify';
 import useApiFech from '../../hooks/useApiFech'
@@ -85,19 +85,7 @@ function  Reservations({ hotelId }) {
 
   return (
     <div>
-        <ToastContainer
-            position="top-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="light"
-            transition={Bounce}
-        />
+        
         <form onSubmit={handleSubmit(onSubmit)}>
             
             <div className='flex flex-col md:flex-row md:items-center justify-center gap-2 mb-4'>

@@ -1,15 +1,18 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useNavigate } from 'react-router'
+import {  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import * as z from 'zod'
 import useAuth from '../../context/auth'
-import { useNavigate } from 'react-router'
+
 
 const schema = z.object({
   firstName: z.string().min(2),
   lastName: z.string().min(2),    
   email:z.string().email(),
-  password:z.string().min(6,{message:"Ingrese un password de almenos 6 characteres "}),
+  password:z.string().min(6,{message:"Ingrese un password de al menos 6 characteres "}),
   gender: z.enum(["male","female","other"],{message:"Select a gender"})
 })
 
@@ -21,10 +24,21 @@ function RegisterForm() {
     })
 
     const onSubmit = (dataform) => {
-        console.log(dataform)
-        createUser(dataform)
-        reset()
-        navigate("/login")
+
+      toast.success('👤 User registered corectly 👤!',{ 
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "light"
+      });
+
+      console.log(dataform)
+      createUser(dataform)
+      reset()
+      navigate("/login")
     }
   
   return (

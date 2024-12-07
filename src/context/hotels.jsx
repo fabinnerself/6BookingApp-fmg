@@ -19,6 +19,17 @@ const useHotels = create ((set) => {
             } finally{
                 set({loading:false})
             }
+        },
+        getByCity: async(cityId) => {
+            set({loading:true})
+            try {
+                const res = await api.get(`/hotels${cityId ? `?cityId=${cityId}` : ''}`)
+                set({hotels: res.data})
+            } catch (error) {
+                set({ error: error.message})
+            } finally{
+                set({loading: false})
+            }
         }
         
     }

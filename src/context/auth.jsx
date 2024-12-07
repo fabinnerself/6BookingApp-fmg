@@ -47,18 +47,18 @@ export const useAuth = create((set ) => ({
         })
     },
     
-    register : async({firstname,lastname,email,password, gender}) =>{
-        set ({status:'pending'})
+    register : async({ firstName, lastName, email, password, gender }) => {
+        set ({ status: 'pending'})
         try {
-            await api.post("users",{firstname,lastname,email,password, gender})
+            await api.post('users', { firstName, lastName, email, password, gender })
             set({
-                status:'resolved',
-                error:null
+                status: 'resolved',
+                error: null
             })
         } catch (error) {
             set({
-                status:'rejected',
-                error:error.response?.data?.message || error.message
+                status: 'rejected',
+                error: error.response?.data?.message || error.message
             })
         }
     }           
