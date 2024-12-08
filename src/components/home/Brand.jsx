@@ -4,7 +4,7 @@ import Logo from './Logo';
 
 function Brand() {
   return (
-    <Link to="/" className="flex  justify-center ">
+    <Link to="/" className="flex  justify-center items-center ">
       {/* Logo */}
       <div className="flex-shrink-0  ">
         <Logo className="w-12 h-12" /> 
