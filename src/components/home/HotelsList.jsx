@@ -1,5 +1,6 @@
 import React from 'react'
 import HotelCard from './HotelCard'
+import { Text } from '../../containers/Language';
 
 function HotelsList({ hotels }) {
   
@@ -10,7 +11,7 @@ function HotelsList({ hotels }) {
       ))
     }
 {hotels.length ===0 && (
-    <p>No hotels found</p>)}    
+    <p><Text tid="h_noHotels" /></p>)}    
 
     </div>
   )

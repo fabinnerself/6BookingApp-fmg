@@ -1,4 +1,5 @@
-import React from 'react'
+
+import React,  { useContext } from 'react'
 import { useNavigate } from 'react-router'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -6,6 +7,7 @@ import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import * as z from 'zod'
 import { useAuth } from '../../context/auth'
+import { Text, LanguageContext } from '../../containers/Language';
 
 
 const schema = z.object({
@@ -21,9 +23,11 @@ const schema = z.object({
         resolver:zodResolver(schema)
     })
 
+    const { dictionary } = useContext(LanguageContext);
+
     const onSubmit = (dataform) => {
  
-        toast.success('👤Login Successful👤!',{ 
+        toast.success( dictionary.l_s_succes1 ,{ 
             position: "top-center",
             autoClose: 3000,
             hideProgressBar: false,
@@ -45,18 +49,20 @@ const schema = z.object({
     <form onSubmit={handleSubmit(onSubmit)}> 
 
         <div className='mb-4'>
-        <label className='block font-semibold ' >E-mail</label>
-        <input className='input-form' placeholder='ingresa tu correo' type="email" 
-        {...register('email')}/>
+        <label className='block font-semibold ' > <Text tid="l_email" /></label>
+        <input className='input-form'  type="email" 
+            placeholder={dictionary.l_p_enteremail}
+            {...register('email')}/>
         {errors.email && <p className='error-validation'>{ errors.email.message}</p>}
         </div>
         <div className='mb-4'>
-        <label className='block font-semibold '>Password</label>
-        <input className='input-form' type="password" placeholder='Ingresa tu contraseña'
-        {...register('password')} />
+        <label className='block font-semibold '><Text tid="l_password" /></label>
+        <input className='input-form' type="password" 
+            placeholder={dictionary.l_p_enterPass}            
+            {...register('password')} />
         {errors.password && <p className='error-validation'>{errors.password.message}</p>}
         </div>
-        <button className='btn w-full'>Iniciar session</button>         
+        <button className='btn w-full'><Text tid="m_login" /></button>         
     </form>
    )
  }

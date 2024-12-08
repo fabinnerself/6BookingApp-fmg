@@ -5,6 +5,7 @@ import { Text } from '../containers/Language';
 import MenuTheme from '../components/MenuTheme';
 
 
+
 function Config() {
     const [theme, setTheme] = useState('light');
     const [currency, setCurrency] = useState('US');

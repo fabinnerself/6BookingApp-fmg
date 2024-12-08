@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import { IoLocationOutline } from "react-icons/io5"
 import { priceFormat } from '../../utils/'
 import RatingStars from '../RatingStars'
+import { Text } from '../../containers/Language';
 
 function HotelCard({ hotel }) {  
   return (
@@ -27,7 +28,7 @@ function HotelCard({ hotel }) {
               {priceFormat.format(hotel.price)}
             </span>
             <Link className="btn" to={`/hotel/${hotel.id}`}>
-              More Info
+            <Text tid="h_moreinfo" />
             </Link>
           </div>
         </div>

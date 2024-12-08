@@ -2,6 +2,7 @@ import React from 'react'
 import {priceFormat} from "../../utils"
 import { Link } from 'react-router'
 import { IoLocationOutline } from "react-icons/io5"
+import { Text } from '../../containers/Language';
 
 
 function RelatedCard({ hotel }) {
@@ -24,7 +25,7 @@ function RelatedCard({ hotel }) {
                         <p className='font-semibold'>{priceFormat.format(hotel?.price)}</p>
                         </div>
                 </div>                
-                <Link className='btn' to={`/hotel/${hotel?.id}`} >More info</Link>
+                <Link className='btn' to={`/hotel/${hotel?.id}`} ><Text tid="h_moreinfo" /></Link>
             </div>
         </div>
         

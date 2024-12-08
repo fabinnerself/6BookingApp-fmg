@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import useAuth from '../../context/auth'
 import { RiHomeGearFill } from "react-icons/ri";
+import { Text } from '../../containers/Language';
 
 function Nav() {
     const {isAuth,logout} = useAuth()
@@ -12,20 +13,20 @@ function Nav() {
      
         {isAuth ?(<>
         <Link to = "/reservations" className='nav-link'>
-          Reservations</Link>
+        <Text tid="m_reservations" /></Link>
           <Link to="/config" className='nav-link' >
           <RiHomeGearFill className='size-6' /></Link>
-          <button className='btn bg-red-500' onClick={logout}>Logout</button>
+          <button className='btn bg-red-500' onClick={logout}> <Text tid="m_logout" /></button>
             
           </>) :(<>
             <Link to="/config" className='nav-link' >
             <RiHomeGearFill className='size-6' /></Link>
             
           <Link to="/login" className='nav-link' >
-          Iniciar session</Link>
+          <Text tid="m_login" /></Link>
 
           <Link to="/register" className='nav-link' >
-          Registrarse</Link> 
+          <Text tid="m_register" /></Link> 
           </>
         )}
          

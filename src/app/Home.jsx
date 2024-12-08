@@ -6,6 +6,8 @@ import Search from '../components/home/Search'
 import Filter from '../components/home/Filter'
 import Menu from '../components/Menu'
 import { FiFilter } from "react-icons/fi";
+// import { Text } from '../../containers/Language';
+import { Text } from '../containers/Language';
 
 function Home() {
    const {hotels,getAll} =useHotels()

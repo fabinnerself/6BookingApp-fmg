@@ -1,5 +1,5 @@
+import React,  { useContext } from 'react'
 import { Input } from 'postcss'
-import React from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from "zod"
 import {zodResolver} from "@hookform/resolvers/zod"
@@ -8,17 +8,18 @@ import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Bounce } from 'react-toastify';
 import useApiFech from '../../hooks/useApiFech'
+import { Text, LanguageContext } from '../../containers/Language';
 
 const schema = z.object({
-    checkIn: z.string().min(10, { message: "Check-In es requerido" }),
-    checkOut: z.string().min(10, { message: "Check-Out es requerido" })
+    checkIn: z.string().min(10, { message:  <Text tid="d_m_minCI" />  }),
+    checkOut: z.string().min(10, { message:  <Text tid="d_m_minCO" />  })
 }).refine((data) => {
     const checkInDate = new Date(data.checkIn);        
     const today = new Date();
 
     return checkInDate > today 
 }, {
-    message: "Las fecha CheckIn debe ser mayor a hoy",
+    message: <Text tid="d_me_1" /> ,
     path: ["checkIn"] 
 }).refine((data) => {
     const checkInDate = new Date(data.checkIn);
@@ -26,7 +27,7 @@ const schema = z.object({
 
     return checkOutDate > checkInDate;
 }, {
-    message: "CheckOut debe ser mayor a CheckIn",
+    message: <Text tid="d_me_2" /> ,
     path: ["checkOut"] 
 });
 
@@ -34,26 +35,22 @@ function  Reservations({ hotelId }) {
     const [data,createReservation] = useApiFech()
     const {handleSubmit, register, formState: {errors }, reset} = useForm({ 
         resolver: zodResolver(schema)})
+    const { dictionary } = useContext(LanguageContext);
 
     const fValidateDates = (CheckIn, CheckOut) => {
-        const today = new Date(); // Obtener la fecha actual
+        const today = new Date(); 
         const checkInDate = new Date(CheckIn);
         const checkOutDate = new Date(CheckOut);
 
-        // Validar que CheckIn sea mayor a hoy
-        if (checkInDate <= today) {
-            console.log("La fecha de Check-In debe ser mayor a hoy.");
-            return false; // O manejar el error como prefieras
+        if (checkInDate <= today) {        
+            return false; 
         }
-
-        // Validar que CheckOut sea mayor a CheckIn
-        if (checkOutDate <= checkInDate) {
-            console.log("La fecha de Check-Out debe ser mayor a la fecha de Check-In.");
-            return false; // O manejar el error como prefieras
+        
+        if (checkOutDate <= checkInDate) {        
+            return false; 
         }
-
-        console.log("Fechas válidas:", CheckIn, CheckOut);
-        return true; // Si todas las validaciones pasan
+        
+        return true; 
     }
 
     const onSubmit = (dataForm) => {
@@ -66,8 +63,9 @@ function  Reservations({ hotelId }) {
                 method: 'POST',
                 body:dataForm
             })
-            reset();    
-            toast('🛫🌍🏨📅📖 Reserva registrada correctamente! ', {
+            reset();
+           
+            toast(  dictionary.d_t_succes , {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -92,18 +90,18 @@ function  Reservations({ hotelId }) {
 
                 <div className='flex items-center justify-center gap-2 mb-4'>
                     <div className='flex flex-col items-center '>
-                        <label htmlFor="check-in" className='font-semibold text-sm'>Check-In</label>
+                        <label htmlFor="check-in" className='font-semibold text-sm'><Text tid="d_checkin" /></label>
                         <input id="check-in" type="date" {...register("checkIn")}
                             className="border px-3 py-1 rounded-sm" />
                     </div>
                     <div className='flex flex-col items-center'>
-                        <label htmlFor="check-out">Check-Out</label>
+                        <label htmlFor="check-out"><Text tid="d_checkout" /></label>
                         <input id="check-out" type="date"  {...register("checkOut")} 
                             className="border px-3 py-1 rounded-sm" />
                     </div>                    
                 </div>
                    
-                <button className='btn bg-emerald-500 py-1.5 '>Reservar</button>
+                <button className='btn bg-emerald-500 py-1.5 '><Text tid="Reserve" /> </button>
             </div>
             {/* errors */}
              

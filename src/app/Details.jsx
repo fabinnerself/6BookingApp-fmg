@@ -11,6 +11,7 @@ import Hero from '../components/details/Hero';
 import { useAuth } from '../context/auth';
 import Reviews from '../components/details/Reviews';
 import Related from '../components/details/Related';
+import { Text } from '../containers/Language';
 
 function Details() {
   const params = useParams()
@@ -39,7 +40,7 @@ if(loading) return (
       <Hero hotel={hotel} />
         
       <div className='max-w-5x1 mx-auto p-5 py-10'>
-        <h2 className='text-2xl font-semibold text-center mb-4'>Reserve</h2>
+        <h2 className='text-2xl font-semibold text-center mb-4'><Text tid="d_reserve" /></h2>
 
         {/* reservaciones */ }
         <div className='mb-8'>

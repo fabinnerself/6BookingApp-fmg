@@ -5,6 +5,7 @@ import { IoCalendarClearOutline } from "react-icons/io5";
 import { IoLocationOutline } from "react-icons/io5";
 import { LiaBedSolid } from "react-icons/lia";
 import { BsCurrencyDollar } from "react-icons/bs";
+import { Text  } from '../../containers/Language';
 
 function ReservationsCard({ reservation , onDelete , onRate }) {
     const checkInDay = new Date(reservation.checkIn + 'T00:00:00')
@@ -27,7 +28,7 @@ function ReservationsCard({ reservation , onDelete , onRate }) {
                 <div className='flex items-center gap-2'>
                      <IoCalendarClearOutline className='size-8' />
                         <div>
-                            <p className='font-semibold'>Arrival</p>
+                            <p className='font-semibold'><Text tid="d_checkin" /></p>
                             <p className='text-xs'>{reservation.checkIn}</p>
                         </div>
                 </div>
@@ -35,7 +36,7 @@ function ReservationsCard({ reservation , onDelete , onRate }) {
                 <div className='flex items-center gap-2'>
                     <IoCalendarClearOutline className='size-8' />
                     <div>
-                        <p className='font-semibold'>Departure</p>
+                        <p className='font-semibold'><Text tid="d_checkout" /></p>
                         <p className='text-xs'>{reservation.checkOut}</p>
                     </div>
                 </div>                 
@@ -48,13 +49,13 @@ function ReservationsCard({ reservation , onDelete , onRate }) {
 
             <div className='flex items-center gap-2'>
                 <LiaBedSolid className='size-6'/>
-                <p>{nights} {nights===1 ? 'night': 'nights'}</p>
+                <p>{nights} {nights===1 ? <Text tid="r_night" />: <Text tid="r_nights" />}</p>
             </div>
 
             <div className='flex justify-between items-center'>                
                 <div className='flex items-center gap-2'>
                     <BsCurrencyDollar className='size-6'/>
-                    <p className='text-xl font-semibold p-4 ' >Price per night </p>
+                    <p className='text-xl font-semibold p-4 ' ><Text tid="r_price" /> </p>
                 </div>
                 <p className='font-semibold'>{priceFormat.format(priePerNight)} </p>
                 
@@ -62,7 +63,7 @@ function ReservationsCard({ reservation , onDelete , onRate }) {
             <div className='flex justify-between items-center border-t pt-4'>                
                 <div className='flex items-center gap-2'>
                     <BsCurrencyDollar className='size-6'/>
-                    <p className='font-semibold text-lg  p-4 ' >Total </p>
+                    <p className='font-semibold text-lg  p-4 ' ><Text tid="r_total" />  </p>
                 </div>
                 <p className='font-semibold text-xl'>{priceFormat.format(totalPrice)} </p>                
             </div>            
@@ -70,8 +71,8 @@ function ReservationsCard({ reservation , onDelete , onRate }) {
         </div>
 
         <div className='flex justify-end  bg-gray-50 py-9 px-6 gap-3'>
-            <button className='btn bg-red-500' onClick={() => onDelete(reservation?.id)}>Delete</button>{' '}
-            <button className='btn bg-yellow-500' onClick={() => onRate(reservation?.hotel?.id)}>Rate</button>
+            <button className='btn bg-red-500' onClick={() => onDelete(reservation?.id)}><Text tid="r_deleteB" /> </button>{' '}
+            <button className='btn bg-yellow-500' onClick={() => onRate(reservation?.hotel?.id)}><Text tid="Review" />   </button>
         </div>
     </div>
   )

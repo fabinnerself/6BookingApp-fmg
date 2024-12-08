@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ReviewCard from './ReviewCard'
+import { Text } from '../../containers/Language';
 
 function ReviewList({ reviews }) {
    const [visibleReviews,setVisibleReviews] = useState(5)
@@ -19,11 +20,11 @@ function ReviewList({ reviews }) {
         </div >
         {visibleReviews < reviews?.length && (
           <div className='flex justify-center'>
-            <button className='btn ' onClick={loadMore}>Load more</button>
+            <button className='btn ' onClick={loadMore}><Text tid="d_loadMore" /></button>
           </div>)}
 
          {reviews?.length === 0 && (
-            <p className='font-semibold text-center'>No reviews yet.</p>
+            <p className='font-semibold text-center'><Text tid="d_loadMore" /></p>
         )}  
     </div>
   )
