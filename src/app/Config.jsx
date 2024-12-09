@@ -10,8 +10,11 @@ function Config() {
     const [theme, setTheme] = useState('light');
     const [currency, setCurrency] = useState('US');
 
+    const currTheme = window.localStorage.getItem('rcml-theme') || 'light'
+
 const handleThemeChange = (newTheme) => {
     setTheme(newTheme);
+    window.localStorage.setItem('rcml-theme',newTheme)
     document.body.className = newTheme; 
 };
 
@@ -50,10 +53,10 @@ const handleLocalCurencyChange = (newCurrency) => {
                             <label className="block text-sm font-medium text-gray-700 mb-1">
                                  <Text tid="c_theme" />
                             </label>
-                            <MenuTheme onThemeChange={handleThemeChange} currentTheme={theme} />
+                            <MenuTheme onThemeChange={handleThemeChange} currentTheme={currTheme} />
 
                         </div>
-                        <div>
+                        {/* <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">
                             <Text tid="c_localCurrency" /> 
                             </label>
@@ -66,7 +69,7 @@ const handleLocalCurencyChange = (newCurrency) => {
                                 <option value="CAD">Canadian Dollar</option>
                                 <option value="MNX">Mexican Peso</option>
                             </select>
-                        </div>                        
+                        </div>                         */}
                     </div>
                 </div>
 

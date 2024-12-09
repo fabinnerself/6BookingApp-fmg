@@ -7,8 +7,7 @@ function Reviews({ hotelId }) {
     const [reviews, setReviews] = useApiFech()
 
     useEffect(()=> {
-        if(hotelId){
-          console.log("id ", hotelId)
+        if(hotelId){          
           setReviews({
             url:`/reviews?hotelId=${hotelId}`})
         }        

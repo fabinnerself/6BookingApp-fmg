@@ -9,7 +9,7 @@ function ReviewList({ reviews }) {
    const loadMore = () => {
     setVisibleReviews(visibleReviews + loadMoreIncrement)
    }
-   console.log("rev ",reviews)
+   
   return (
     <div>
         <div className='mb-4'>
