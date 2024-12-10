@@ -71,5 +71,6 @@
   "s_m_p3": " the value ",
   "s_m_p4": " all records 🔍 ",
   "r_r_succes":"Rate registered successfully!🌟",
-  "r_r_error":"Please fill all the fields"
+  "r_r_error":"Please fill all the fields",
+  "r_convRate":"Conversion Rate"
 }

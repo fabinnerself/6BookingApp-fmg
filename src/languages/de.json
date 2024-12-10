@@ -71,5 +71,6 @@
   "s_m_p3": " dem Wert ",
   "s_m_p4": " alle Datensätze 🔍 ",
   "r_r_succes": "Rate erfolgreich registriert! 🌟",
-  "r_r_error": "Bitte füllen Sie alle Felder aus"
+  "r_r_error": "Bitte füllen Sie alle Felder aus",
+  "r_convRate":"Umrechnungskurs"
 }

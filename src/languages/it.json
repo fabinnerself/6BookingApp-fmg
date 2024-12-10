@@ -71,5 +71,6 @@
   "s_m_p3": " il valore ",
   "s_m_p4": " tutti i record 🔍 ",
   "r_r_succes": "Tasso registrato con successo! 🌟",
-  "r_r_error": "Si prega di compilare tutti i campi"
+  "r_r_error": "Si prega di compilare tutti i campi",
+  "r_convRate":" Tasso di conversione"
 }

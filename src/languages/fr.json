@@ -71,5 +71,6 @@
   "s_m_p3": " la valeur ",
   "s_m_p4": " tous les enregistrements 🔍 ",
   "r_r_succes": "Taux enregistré avec succès ! 🌟",
-  "r_r_error": "Veuillez remplir tous les champs"
+  "r_r_error": "Veuillez remplir tous les champs",
+  "r_convRate":"Taux de conversion"
 }

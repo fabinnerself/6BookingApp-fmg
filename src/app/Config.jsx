@@ -11,6 +11,7 @@ function Config() {
     const [currency, setCurrency] = useState('US');
 
     const currTheme = window.localStorage.getItem('rcml-theme') || 'light'
+    const currCurrency = window.localStorage.getItem('rcml-currency') || 'US'
 
 const handleThemeChange = (newTheme) => {
     setTheme(newTheme);
@@ -18,10 +19,13 @@ const handleThemeChange = (newTheme) => {
     document.body.className = newTheme; 
 };
 
-const handleLocalCurencyChange = (newCurrency) => {
-    setCurrency(newCurrency);    
-};
+ 
 
+const onCurrencyChange = (newCurrency) => {
+    console.log(" val ",newCurrency)
+    window.localStorage.setItem('rcml-currency',newCurrency)
+    setCurrency(newCurrency)
+}
   return (
        
     <div className={`min-h-screen  flex flex-col `}>
@@ -56,20 +60,25 @@ const handleLocalCurencyChange = (newCurrency) => {
                             <MenuTheme onThemeChange={handleThemeChange} currentTheme={currTheme} />
 
                         </div>
-                        {/* <div>
+                        <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">
                             <Text tid="c_localCurrency" /> 
                             </label>
                             <select className="w-full border rounded-md p-2"
-                                defaultValue={currency}
-                                onChange={(e) => onThemeChange(e.target.value)} >
-                                <option value="US">Dollar</option>
-                                <option value="BS">Bolivian</option>
-                                <option value="EUR">Euro</option>
-                                <option value="CAD">Canadian Dollar</option>
-                                <option value="MNX">Mexican Peso</option>
+                                defaultValue={currCurrency}
+                                
+                                onChange={(e) => onCurrencyChange(e.target.value)} >                                
+                                <option value="bob">Bolivian Peso</option>
+                                <option value="eur">Euro</option>
+                                <option value="cad">Canadian Dollar</option>
+                                <option value="mxn">Mexican Peso</option>
+                                <option value="ars">Argentine Peso</option>
+                                <option value="clp">Chilean Peso</option>
+                                <option value="pyg">Paraguayan Guaraní</option>
+                                <option value="uyu">Uruguayan Peso</option>
+                                <option value="brl">Brazilian Real</option>
                             </select>
-                        </div>                         */}
+                        </div>                        
                     </div>
                 </div>
 

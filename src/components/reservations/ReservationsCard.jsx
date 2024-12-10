@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router';
-import { priceFormat } from "../../utils/index"
+import { priceFormat , priceFormatCurrency , formatDate } from "../../utils/index"
 import { IoCalendarClearOutline } from "react-icons/io5";
 import { IoLocationOutline } from "react-icons/io5";
 import { LiaBedSolid } from "react-icons/lia";
@@ -10,13 +10,41 @@ import { Text  } from '../../containers/Language';
 function ReservationsCard({ reservation , onDelete , onRate }) {
     const checkInDay = new Date(reservation.checkIn + 'T00:00:00')
     const checkOutDay =new Date(reservation.checkOut + 'T00:00:00')
+
+    
+
     //calcular total noches
     const milliseconsPerDay = 1000 * 60 * 60 * 24
     const nights = Math.ceil((checkOutDay-checkInDay) / milliseconsPerDay)
 
     const priePerNight = parseInt(reservation?.hotel?.price)
     const totalPrice = priePerNight*nights
+
+    const [eurPrice, setEurPrice] = useState(0);
+    const [exchangeR, setExchangeR] = useState(0);
+
+    const currLang = window.localStorage.getItem('rcml-lang') || 'en'
+    const currCurrency = window.localStorage.getItem('rcml-currency') || 'US'   
     
+    const formattedCheckIn = formatDate(checkInDay, currLang);
+    const formattedCheckOut = formatDate(checkOutDay, currLang);
+
+    useEffect(() => {
+        const fetchExchangeRate = async () => {
+            try {
+                const response = await fetch(`https://v6.exchangerate-api.com/v6/971fd1cf58913cf72c651307/pair/USD/${currCurrency}`);
+                const data = await response.json();
+                const exchangeRate = data.conversion_rate;
+                setEurPrice(totalPrice * exchangeRate);
+                setExchangeR(exchangeRate)
+            } catch (error) {
+                console.error('Error fetching exchange rate:', error);
+            }
+        };
+
+        fetchExchangeRate();
+    }, [totalPrice]);    
+
   return (
     <div className='bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 
     transition-transform duration-300 '>
@@ -29,7 +57,7 @@ function ReservationsCard({ reservation , onDelete , onRate }) {
                      <IoCalendarClearOutline className='size-8' />
                         <div>
                             <p className='font-semibold'><Text tid="d_checkin" /></p>
-                            <p className='text-xs'>{reservation.checkIn}</p>
+                            <p className='text-xs'>{formattedCheckIn}</p>
                         </div>
                 </div>
 
@@ -37,7 +65,7 @@ function ReservationsCard({ reservation , onDelete , onRate }) {
                     <IoCalendarClearOutline className='size-8' />
                     <div>
                         <p className='font-semibold'><Text tid="d_checkout" /></p>
-                        <p className='text-xs'>{reservation.checkOut}</p>
+                        <p className='text-xs'>{formattedCheckOut}</p>
                     </div>
                 </div>                 
             </div>
@@ -65,8 +93,22 @@ function ReservationsCard({ reservation , onDelete , onRate }) {
                     <BsCurrencyDollar className='size-6'/>
                     <p className='font-semibold text-lg  p-4 ' ><Text tid="r_total" />  </p>
                 </div>
-                <p className='font-semibold text-xl'>{priceFormat.format(totalPrice)} </p>                
-            </div>            
+                <p className='font-semibold text-xl'>{priceFormat.format(totalPrice)} </p>
+                 
+            </div>     
+
+            <div className='flex justify-between items-center border-t pt-4'>                
+                <div className='flex items-center gap-2'>
+                    
+                    <p className='font-semibold text-lg  p-4 ' ><Text tid="r_total" />  </p>
+                </div>                
+                {eurPrice && ( 
+                    <div className='flex flex-col items-end'>
+                        <p className='font-semibold text-xl'>{priceFormatCurrency(eurPrice, currLang, currCurrency)}</p>
+                        <p className='text-xs text-right'><Text tid="r_convRate" /> { exchangeR.toFixed(2)}</p>
+                    </div>
+                )}
+            </div>       
 
         </div>
 

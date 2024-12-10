@@ -71,6 +71,7 @@
   "r_noreservations":"No reservaciones encontradas.",
   "l_s_succes1":"👤 Inicio de sesión correcto 👤!",
   "r_r_succes":"Opinion registrada correctamente!🌟",
-  "r_r_error":"Por favor llena todos los campos"   
+  "r_r_error":"Por favor llena todos los campos" ,
+  "r_convRate":"Tasa de conversión"  
   
 }
